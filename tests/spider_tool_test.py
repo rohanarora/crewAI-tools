@@ -38,7 +38,7 @@ def test_spider_tool():
             return_metadata, 
             css_selector
         ],
-        verbose=2
+        verbose=True
     )
     
     crew.kickoff()
