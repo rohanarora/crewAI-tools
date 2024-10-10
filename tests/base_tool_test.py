@@ -9,14 +9,14 @@ def test_creating_a_tool_using_annotation():
 
 	# Assert all the right attributes were defined
 	assert my_tool.name == "Name of my tool"
-	assert my_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it."
+	assert my_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it. "
 	assert my_tool.args_schema.schema()["properties"] == {'question': {'title': 'Question', 'type': 'string'}}
 	assert my_tool.func("What is the meaning of life?") == "What is the meaning of life?"
 
 	# Assert the langchain tool conversion worked as expected
 	converted_tool = my_tool.to_langchain()
 	assert converted_tool.name == "Name of my tool"
-	assert converted_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it."
+	assert converted_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it. "
 	assert converted_tool.args_schema.schema()["properties"] == {'question': {'title': 'Question', 'type': 'string'}}
 	assert converted_tool.func("What is the meaning of life?") == "What is the meaning of life?"
 
@@ -31,14 +31,14 @@ def test_creating_a_tool_using_baseclass():
 	my_tool = MyCustomTool()
 	# Assert all the right attributes were defined
 	assert my_tool.name == "Name of my tool"
-	assert my_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it."
+	assert my_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it. "
 	assert my_tool.args_schema.schema()["properties"] == {'question': {'title': 'Question', 'type': 'string'}}
 	assert my_tool.run("What is the meaning of life?") == "What is the meaning of life?"
 
 	# Assert the langchain tool conversion worked as expected
 	converted_tool = my_tool.to_langchain()
 	assert converted_tool.name == "Name of my tool"
-	assert converted_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it."
+	assert converted_tool.description == "Name of my tool(question: 'string') - Clear description for what this tool is useful for, you agent will need this information to use it. "
 	assert converted_tool.args_schema.schema()["properties"] == {'question': {'title': 'Question', 'type': 'string'}}
 	assert converted_tool.run("What is the meaning of life?") == "What is the meaning of life?"
 
